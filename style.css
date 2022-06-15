@@ -1,5 +1,26 @@
+html body {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.container {
+    display: flex;
+}
+
 .cell {
-    border: solid 1px black;
-    width: 100px;
-    height: 100px;
+    background: #9E9E9E;
+    border: black 1px solid;
+    width: 180px;
+    height: 180px;
+    margin: 0 auto;
+    margin-top: 0;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.row {
+    display: block;
+    float:left;
+    width:100%;
 }
