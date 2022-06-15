@@ -6,21 +6,22 @@ html body {
 
 .container {
     display: flex;
+    width: 960px;
 }
 
 .cell {
     background: #9E9E9E;
     border: black 1px solid;
-    width: 180px;
-    height: 180px;
-    margin: 0 auto;
+    width: inherit;
+    height: 20px;
+    /* margin: 0 auto;
     margin-top: 0;
     cursor: pointer;
-    display: inline-block;
+    display: inline-block; */
 }
 
-.row {
-    display: block;
-    float:left;
+.col {
+    display: flex;
+    flex-direction: column;
     width:100%;
 }
