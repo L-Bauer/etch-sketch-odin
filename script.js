@@ -1,8 +1,8 @@
-const containerBox = document.getElementsByClassName('container');
+const containerBox = document.querySelector('.container');
 const gridCell = document.getElementsByClassName('cell'); 
 
 
-const gridSize = 8;
+const gridSize = 25;
 
 //Makes the grid
 function makeBlocks() {
@@ -14,20 +14,43 @@ function makeBlocks() {
             cell.className = "cell";
             col.appendChild(cell);
         }                
-        containerBox[0].appendChild(col);
+        containerBox.appendChild(col);
     }
 }
 makeBlocks();
 
 //Creates event to listen on the "cells". Looking for if the cells have the 
 //mouse down event
+let isToggling = false;
 
-function dragCells () {
-    for (let cellsNum = 0; cellsNum < gridCell.length; cellsNum++) {
-        gridCell[cellsNum].addEventListener('dragover', () => 
-            console.log('I am clicked ' + cellsNum));
-    }
+function enableToggle() {
+    console.log('enableToggle')
+    isToggling = true;
+  }
 
+function disableToggle() {
+    console.log('disableToggle')
+    isToggling = false;
+  }
 
+function toggle(e) {
+if (isToggling === false) {
+    return;
 }
 
+console.log('toggle:', e.target);
+
+e.target.classList.toggle('active');
+}
+
+function startGame() {
+    document.onmousedown = enableToggle;
+  
+    for (let i = 0, il = gridCell.length; i < il; i++) {
+        gridCell[i].onmouseenter = toggle; //changes color 
+    }
+  
+    document.onmouseup = disableToggle;
+  }
+
+startGame();

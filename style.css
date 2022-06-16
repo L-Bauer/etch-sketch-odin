@@ -17,6 +17,10 @@ html body {
     height: inherit;
 }
 
+.active {
+    background: red;
+  }
+
 .col {
     display: flex;
     flex-direction: column;
