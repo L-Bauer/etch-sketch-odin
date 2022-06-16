@@ -1,8 +1,11 @@
+
+
 const containerBox = document.querySelector('.container');
 const gridCell = document.getElementsByClassName('cell'); 
-
-
 const gridSize = 25;
+let isToggling = false;
+
+window.onload = makeBlocks(), colorCells();
 
 //Makes the grid
 function makeBlocks() {
@@ -17,40 +20,37 @@ function makeBlocks() {
         containerBox.appendChild(col);
     }
 }
-makeBlocks();
 
 //Creates event to listen on the "cells". Looking for if the cells have the 
 //mouse down event
-let isToggling = false;
 
-function enableToggle() {
+function enableToggle(e) {
     console.log('enableToggle')
     isToggling = true;
-  }
+    if (e.target.classList == 'cell') {
+        e.target.classList.toggle('active');
+    }
+}
 
 function disableToggle() {
     console.log('disableToggle')
     isToggling = false;
-  }
+}
 
 function toggle(e) {
-if (isToggling === false) {
-    return;
+    if (isToggling === false) {
+        return;
+    }
+    console.log('toggle:', e.target);
+    e.target.classList.toggle('active');
 }
 
-console.log('toggle:', e.target);
-
-e.target.classList.toggle('active');
-}
-
-function startGame() {
+function colorCells() {
     document.onmousedown = enableToggle;
   
     for (let i = 0, il = gridCell.length; i < il; i++) {
         gridCell[i].onmouseenter = toggle; //changes color 
     }
-  
-    document.onmouseup = disableToggle;
-  }
 
-startGame();
+    document.onmouseup = disableToggle;
+}
