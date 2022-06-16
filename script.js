@@ -31,22 +31,3 @@ function dragCells () {
 
 }
 
-window.onload = addListeners;
-
-function addListeners(){
-    window.addEventListener('mousedown', mouseDown, false);
-    window.addEventListener('mouseup', mouseUp, false);
-}
-
-function mouseUp()
-{
-    containerBox[0].removeEventListener('mousemove', divMove, true);
-}
-
-function mouseDown(e){
-    containerBox[0].addEventListener('mousemove', divMove, true);
-}
-
-function divMove(e){
-        console.log(e);
-}
