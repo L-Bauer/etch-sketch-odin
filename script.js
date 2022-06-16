@@ -1,7 +1,8 @@
 const containerBox = document.getElementsByClassName('container');
+const gridCell = document.getElementsByClassName('cell'); 
 
 
-const gridSize = 50;
+const gridSize = 8;
 
 //Makes the grid
 function makeBlocks() {
@@ -22,13 +23,30 @@ makeBlocks();
 //mouse down event
 
 function dragCells () {
-    const gridCell = document.getElementsByClassName('cell'); 
     for (let cellsNum = 0; cellsNum < gridCell.length; cellsNum++) {
-        gridCell[cellsNum].addEventListener('click', () => 
+        gridCell[cellsNum].addEventListener('dragover', () => 
             console.log('I am clicked ' + cellsNum));
     }
 
 
 }
 
-dragCells();
+window.onload = addListeners;
+
+function addListeners(){
+    window.addEventListener('mousedown', mouseDown, false);
+    window.addEventListener('mouseup', mouseUp, false);
+}
+
+function mouseUp()
+{
+    containerBox[0].removeEventListener('mousemove', divMove, true);
+}
+
+function mouseDown(e){
+    containerBox[0].addEventListener('mousemove', divMove, true);
+}
+
+function divMove(e){
+        console.log(e);
+}
