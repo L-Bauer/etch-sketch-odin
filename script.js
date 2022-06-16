@@ -46,11 +46,11 @@ function toggle(e) {
 }
 
 function colorCells() {
-    document.onmousedown = enableToggle;
+    document.addEventListener('mousedown', enableToggle);
   
     for (let i = 0, il = gridCell.length; i < il; i++) {
-        gridCell[i].onmouseenter = toggle; //changes color 
+        gridCell[i].addEventListener('mouseenter', toggle);
     }
 
-    document.onmouseup = disableToggle;
+    document.addEventListener('mouseup', disableToggle);
 }
