@@ -1,8 +1,9 @@
 const containerBox = document.getElementsByClassName('container');
 
 
-const gridSize = 64;
+const gridSize = 50;
 
+//Makes the grid
 function makeBlocks() {
     for (let i = 0; i < gridSize; i++) { //Creates the rows
         const col = document.createElement('div');
@@ -15,5 +16,19 @@ function makeBlocks() {
         containerBox[0].appendChild(col);
     }
 }
-
 makeBlocks();
+
+//Creates event to listen on the "cells". Looking for if the cells have the 
+//mouse down event
+
+function dragCells () {
+    const gridCell = document.getElementsByClassName('cell'); 
+    for (let cellsNum = 0; cellsNum < gridCell.length; cellsNum++) {
+        gridCell[cellsNum].addEventListener('click', () => 
+            console.log('I am clicked ' + cellsNum));
+    }
+
+
+}
+
+dragCells();
