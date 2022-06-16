@@ -25,15 +25,16 @@ function makeBlocks() {
 //mouse down event
 
 function enableToggle(e) {
-    console.log('enableToggle')
-    isToggling = true;
-    if (e.target.classList == 'cell') {
+    if (e.target.classList == 'cell' || e.target.classList == 'cell active') {
+        console.log('enable', e.target);
         e.target.classList.toggle('active');
     }
+    isToggling = true;
+    console.log('enableToggle');
 }
 
 function disableToggle() {
-    console.log('disableToggle')
+    console.log('disableToggle');
     isToggling = false;
 }
 
