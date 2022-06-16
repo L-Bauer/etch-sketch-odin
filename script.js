@@ -1,4 +1,4 @@
-const container = document.getElementsByClassName('container');
+const containerBox = document.getElementsByClassName('container');
 
 
 const gridSize = 64;
@@ -12,7 +12,7 @@ function makeBlocks() {
             cell.className = "cell";
             col.appendChild(cell);
         }                
-        container[0].appendChild(col);
+        containerBox[0].appendChild(col);
     }
 }
 

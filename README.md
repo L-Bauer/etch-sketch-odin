@@ -15,9 +15,9 @@ an image. The image would be like a pixel image.
 
 ## Steps to build project
 
-- [ ] Create a webpage of 16X16 grid of squares
-  - [ ] Use JS to build grid
-    - [ ] Put grid in it's container(div)
+- [X] Create a webpage of 16X16 grid of squares
+  - [X] Use JS to build grid
+    - [X] Put grid in it's container(div)
 - [ ] Setup "Hover" effect on grid to change colors
 - [ ] Add button to allow user to  change grid size
 
