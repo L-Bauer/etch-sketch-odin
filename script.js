@@ -48,17 +48,18 @@ function toggle(e) {
     e.target.classList.toggle('active');
 }
 
-let colorCells = function() {
-    document.addEventListener('mousedown', enableToggle);
+function colorCells() {
+    containerBox.addEventListener('mousedown', enableToggle);
   
     for (let i = 0, il = gridCell.length; i < il; i++) {
         gridCell[i].addEventListener('mouseenter', toggle);
     }
 
-    document.addEventListener('mouseup', disableToggle);
+    containerBox.addEventListener('mouseup', disableToggle);
 }
+colorCells();
 
-//Testing new branch
+//Changing the grid size
 function handleUpdate() {
     gridSize = this.value;
     refreshGrid();
