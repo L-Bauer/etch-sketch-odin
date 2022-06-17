@@ -5,6 +5,7 @@ const cellGrid = document.querySelectorAll('.cell');
 
 const defaultSize = 16;
 let isToggling = false;
+let cellColor = '#6d4545';
 
 sizeLabel.innerHTML = defaultSize + ' X ' + defaultSize;
 
@@ -29,14 +30,18 @@ function setupGrid(size) {
 function handleUpdate() {
     if (this.id == 'sizing') {
         gridSize = this.value;
-        grid.innerHTML ='';
+        clearGrid();
         setupGrid(gridSize); 
     }
     if (this.id == 'color') {
         console.log(this.value);
+        cellColor = this.value;
     }
 }
 
+function clearGrid () {
+    grid.innerHTML ='';
+}
 
 inputs.forEach(input => input.addEventListener('change', handleUpdate));
 inputs.forEach(input => input.addEventListener('mousedown', () => {
@@ -50,6 +55,7 @@ function moveMouse () {
         console.log(this.id); 
     }
 }
+
 
 //Color the cells
 function toggle(e) {
@@ -71,7 +77,7 @@ function addColor(e) {
     if (isToggling === false) {
         return;
     }
-    e.target.style.background = '#6d4545';
+    e.target.style.background = cellColor;
     console.log('toggle:', e.target);
 }
 
