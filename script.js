@@ -3,7 +3,6 @@ const inputs = document.querySelectorAll('.controls input');
 const sizeLabel = document.querySelector('.size');
 const cellGrid = document.querySelectorAll('.cell');
 
-
 const defaultSize = 16;
 let isToggling = false;
 
@@ -33,6 +32,9 @@ function handleUpdate() {
         grid.innerHTML ='';
         setupGrid(gridSize); 
     }
+    if (this.id == 'color') {
+        console.log(this.value);
+    }
 }
 
 
@@ -54,6 +56,10 @@ function toggle(e) {
     if (e.type == 'mousedown') {
         isToggling = true;
         console.log('enableToggle');
+        console.log(e);
+        if (e.target.parentElement.className == 'grid') {
+            addColor(e);
+        }
     }
     else if (e.type == 'mouseup') {
         console.log('disableToggle');
@@ -65,16 +71,16 @@ function addColor(e) {
     if (isToggling === false) {
         return;
     }
-    console.log('toggle:', e.target);
     e.target.style.background = '#6d4545';
+    console.log('toggle:', e.target);
 }
 
 function colorCells() {
+    grid.addEventListener('mousedown', addColor);
+    grid.addEventListener('mousemove', addColor);
+
     document.addEventListener('mousedown', toggle);
     document.addEventListener('mouseup', toggle);
-
-    grid.addEventListener('mousedown', addColor);
-    grid.addEventListener('mouseover', addColor);
 }
 
 colorCells();
