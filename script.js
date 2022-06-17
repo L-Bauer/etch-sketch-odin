@@ -1,8 +1,10 @@
 const grid = document.querySelector('.grid');
 const inputs = document.querySelectorAll('.controls input');
-const sizeInput = document.getElementById('sizing');
+const sizeLabel = document.querySelector('.size');
 
 const defaultSize = 16;
+
+sizeLabel.innerHTML = defaultSize + ' X ' + defaultSize;
 
 window.onload = () => {
     setupGrid(defaultSize);
@@ -37,11 +39,7 @@ inputs.forEach(input => input.addEventListener('mousedown', () => {
     inputs.forEach(input => input.addEventListener('mousemove', moveMouse));
 }));
 
-// function downMouse () {
-//     console.log('Down Mouse');
-//     inputs.forEach(input => input.addEventListener('mousemove', moveMouse));
-// }
-
 function moveMouse () {
     console.log(this.value);
+    sizeLabel.innerHTML = this.value + ' X ' + this.value;
 }
