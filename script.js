@@ -3,6 +3,7 @@ const inputs = document.querySelectorAll('.controls input');
 const sizeLabel = document.querySelector('.size');
 const cellGrid = document.querySelectorAll('.cell');
 
+
 const defaultSize = 16;
 let isToggling = false;
 
@@ -27,14 +28,13 @@ function setupGrid(size) {
 
 //Changing the grid size
 function handleUpdate() {
-    gridSize = this.value;
-    refreshGrid();
-    setupGrid(gridSize);
+    if (this.id == 'sizing') {
+        gridSize = this.value;
+        grid.innerHTML ='';
+        setupGrid(gridSize); 
+    }
 }
 
-function refreshGrid() {
-    grid.innerHTML ='';
-}
 
 inputs.forEach(input => input.addEventListener('change', handleUpdate));
 inputs.forEach(input => input.addEventListener('mousedown', () => {
@@ -42,8 +42,11 @@ inputs.forEach(input => input.addEventListener('mousedown', () => {
 }));
 
 function moveMouse () {
-    console.log(this.value);
-    sizeLabel.innerHTML = this.value + ' X ' + this.value;
+    if (this.id == 'sizing') {
+        console.log(this.value);
+        sizeLabel.innerHTML = this.value + ' X ' + this.value;
+        console.log(this.id); 
+    }
 }
 
 //Color the cells
