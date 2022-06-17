@@ -13,8 +13,13 @@ html body {
 .cell {
     background: #9E9E9E;
     border: black 1px solid;
+    user-select: none;
 }
 
 .active {
     background: #6d4545;
 } 
+
+.controls {
+    padding: 5px;
+}

@@ -1,10 +1,12 @@
-
-
 const grid = document.querySelector('.grid');
-const gridCell = document.querySelectorAll('cell'); 
-const gridSize = 16;
-let isToggling = false;
+const inputs = document.querySelectorAll('.controls input');
+const sizeInput = document.getElementById('sizing');
 
+const defaultSize = 16;
+
+window.onload = () => {
+    setupGrid(defaultSize);
+}
 
 function setupGrid(size) {
     grid.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
@@ -19,40 +21,27 @@ function setupGrid(size) {
     }
 }
 
-
-//Creates event to listen on the "cells". Looking for if the cells have the 
-//mouse down event
-
-function enableToggle(e) {
-    if (e.target.classList == 'cell' || e.target.classList == 'cell active') {
-        console.log('enable', e.target);
-        e.target.classList.toggle('active');
-    }
-    isToggling = true;
-    console.log('enableToggle');
+//Changing the grid size
+function handleUpdate() {
+    gridSize = this.value;
+    refreshGrid();
+    setupGrid(gridSize);
 }
 
-function disableToggle() {
-    console.log('disableToggle');
-    isToggling = false;
+function refreshGrid() {
+    grid.innerHTML ='';
 }
 
-function toggle(e) {
-    if (isToggling === false) {
-        return;
-    }
-    console.log('toggle:', e.target);
-    e.target.classList.toggle('active');
+inputs.forEach(input => input.addEventListener('change', handleUpdate));
+inputs.forEach(input => input.addEventListener('mousedown', () => {
+    inputs.forEach(input => input.addEventListener('mousemove', moveMouse));
+}));
+
+// function downMouse () {
+//     console.log('Down Mouse');
+//     inputs.forEach(input => input.addEventListener('mousemove', moveMouse));
+// }
+
+function moveMouse () {
+    console.log(this.value);
 }
-
-function colorCells() {
-    document.addEventListener('mousedown', enableToggle);
-  
-    for (let i = 0, il = gridCell.length; i < il; i++) {
-        gridCell[i].addEventListener('mouseover', toggle);
-    }
-
-    document.addEventListener('mouseup', disableToggle);
-}
-
-colorCells();
