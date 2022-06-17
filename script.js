@@ -2,16 +2,16 @@ const grid = document.querySelector('.grid');
 const inputs = document.querySelectorAll('.controls input');
 const sizeLabel = document.querySelector('.size');
 const cellGrid = document.querySelectorAll('.cell');
+const eraseButton = document.querySelector('.erase');
 
-const defaultSize = 16;
+let gridSize = 16;
 let isToggling = false;
 let cellColor = '#6d4545';
 
-sizeLabel.innerHTML = defaultSize + ' X ' + defaultSize;
-
 window.onload = () => {
-    setupGrid(defaultSize);
+    setupGrid(gridSize);
 }
+sizeLabel.innerHTML = gridSize + ' X ' + gridSize;
 
 function setupGrid(size) {
     grid.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
@@ -30,8 +30,8 @@ function setupGrid(size) {
 function handleUpdate() {
     if (this.id == 'sizing') {
         gridSize = this.value;
-        clearGrid();
-        setupGrid(gridSize); 
+        newGrid();
+         
     }
     if (this.id == 'color') {
         console.log(this.value);
@@ -39,8 +39,9 @@ function handleUpdate() {
     }
 }
 
-function clearGrid () {
+function newGrid () {
     grid.innerHTML ='';
+    setupGrid(gridSize);
 }
 
 inputs.forEach(input => input.addEventListener('change', handleUpdate));
@@ -55,6 +56,9 @@ function moveMouse () {
         console.log(this.id); 
     }
 }
+
+//Erase work, Start with clean grid
+eraseButton.addEventListener('click', newGrid);
 
 
 //Color the cells
@@ -90,3 +94,4 @@ function colorCells() {
 }
 
 colorCells();
+//End of coloring cells
