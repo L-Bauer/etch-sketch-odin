@@ -7,7 +7,7 @@ html body {
 .grid {
     display: grid;
     width: 960px;
-    height: 960px;
+    height: 80vh;
 }
 
 .cell {
