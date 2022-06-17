@@ -4,8 +4,8 @@ html body {
     align-content: center;
 }
 
-.container {
-    display: flex;
+.grid {
+    display: grid;
     width: 960px;
     height: 960px;
 }
@@ -13,17 +13,8 @@ html body {
 .cell {
     background: #9E9E9E;
     border: black 1px solid;
-    width: inherit;
-    height: inherit;
 }
 
 .active {
-    background: red;
-  }
-
-.col {
-    display: flex;
-    flex-direction: column;
-    width:100%;
-    height: 100%;
-}
+    background: #6d4545;
+} 
