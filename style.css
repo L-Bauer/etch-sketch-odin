@@ -2,6 +2,7 @@ html body {
     display: flex;
     justify-content: center;
     align-content: center;
+    height: 100vh;
 }
 
 .grid {
@@ -15,10 +16,6 @@ html body {
     border: black 1px solid;
     user-select: none;
 }
-
-.active {
-    background: #6d4545;
-} 
 
 .controls {
     padding: 5px;

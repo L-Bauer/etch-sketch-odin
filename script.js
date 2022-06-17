@@ -1,8 +1,10 @@
 const grid = document.querySelector('.grid');
 const inputs = document.querySelectorAll('.controls input');
 const sizeLabel = document.querySelector('.size');
+const cellGrid = document.querySelectorAll('.cell');
 
 const defaultSize = 16;
+let isToggling = false;
 
 sizeLabel.innerHTML = defaultSize + ' X ' + defaultSize;
 
@@ -43,3 +45,33 @@ function moveMouse () {
     console.log(this.value);
     sizeLabel.innerHTML = this.value + ' X ' + this.value;
 }
+
+//Color the cells
+function toggle(e) {
+    if (e.type == 'mousedown') {
+        isToggling = true;
+        console.log('enableToggle');
+    }
+    else if (e.type == 'mouseup') {
+        console.log('disableToggle');
+        isToggling = false;
+    }
+}
+
+function addColor(e) {
+    if (isToggling === false) {
+        return;
+    }
+    console.log('toggle:', e.target);
+    e.target.style.background = '#6d4545';
+}
+
+function colorCells() {
+    document.addEventListener('mousedown', toggle);
+    document.addEventListener('mouseup', toggle);
+
+    grid.addEventListener('mousedown', addColor);
+    grid.addEventListener('mouseover', addColor);
+}
+
+colorCells();
