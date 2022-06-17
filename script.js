@@ -21,37 +21,37 @@ function makeBlocks() {
     }
 }
 
-//Creates event to listen on the "cells". Looking for if the cells have the 
-//mouse down event
+// //Creates event to listen on the "cells". Looking for if the cells have the 
+// //mouse down event
 
-function enableToggle(e) {
-    if (e.target.classList == 'cell' || e.target.classList == 'cell active') {
-        console.log('enable', e.target);
-        e.target.classList.toggle('active');
-    }
-    isToggling = true;
-    console.log('enableToggle');
-}
+// function enableToggle(e) {
+//     if (e.target.classList == 'cell' || e.target.classList == 'cell active') {
+//         console.log('enable', e.target);
+//         e.target.classList.toggle('active');
+//     }
+//     isToggling = true;
+//     console.log('enableToggle');
+// }
 
-function disableToggle() {
-    console.log('disableToggle');
-    isToggling = false;
-}
+// function disableToggle() {
+//     console.log('disableToggle');
+//     isToggling = false;
+// }
 
-function toggle(e) {
-    if (isToggling === false) {
-        return;
-    }
-    console.log('toggle:', e.target);
-    e.target.classList.toggle('active');
-}
+// function toggle(e) {
+//     if (isToggling === false) {
+//         return;
+//     }
+//     console.log('toggle:', e.target);
+//     e.target.classList.toggle('active');
+// }
 
-function colorCells() {
-    document.addEventListener('mousedown', enableToggle);
+// function colorCells() {
+//     document.addEventListener('mousedown', enableToggle);
   
-    for (let i = 0, il = gridCell.length; i < il; i++) {
-        gridCell[i].addEventListener('mouseenter', toggle);
-    }
+//     for (let i = 0, il = gridCell.length; i < il; i++) {
+//         gridCell[i].addEventListener('mouseenter', toggle);
+//     }
 
-    document.addEventListener('mouseup', disableToggle);
-}
+//     document.addEventListener('mouseup', disableToggle);
+// }
