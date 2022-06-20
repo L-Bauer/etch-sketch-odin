@@ -1,14 +1,22 @@
 html body {
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+}
+
+.sketchPad {
+    display: flex;
     justify-content: center;
     align-content: center;
-    height: 100vh;
 }
 
 .grid {
     display: grid;
     width: 960px;
-    height: 80vh;
+    aspect-ratio: 1;
+    padding: 10px;
+    margin: 20px;
 }
 
 .cell {
@@ -19,5 +27,8 @@ html body {
 
 .controls {
     padding: 5px;
+    align-self: center;
+    display: flex;
+    flex-direction: column;
 }
 
