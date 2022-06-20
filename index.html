@@ -16,12 +16,12 @@
         <label for="sizing">Grid Size:</label>
         <input id="sizing" type="range" name="sizing" min="16" max="100" value="2"></input>
         <p class="size"></p>
-        <input id='color' type="color" id="colorpicker" value="#6d4545"></input>
+        <input id='color' type="color" id="colorpicker" value="#000000"></input>
         <label for="colorpicker">Color Picker:</label><br>
         <button class="erase">Erase Work</button>
         <div class="radioButtons">
             <!-- Normal color radio button -->
-            <input type="radio" id="normalColor" name="coloring" value="normal">
+            <input type="radio" id="normalColor" name="coloring" value="normal" checked="checked">
             <label for="normalColor">Normal Color</label><br>
             <!-- Dark Shade radio button -->
             <input type="radio" id="darkShade" name="coloring" value="darken">
@@ -29,12 +29,6 @@
             <!-- Light Shade radio button -->
             <input type="radio" id="lightShade" name="coloring" value="lighten">
             <label for="lightShade">Shade Lighten</label><br>
-            <!-- Blend Colors radio button -->
-            <input type="radio" id="blendButton" name="coloring" value="blend">
-            <label for="blendButton">Blend Colors</label><br>
-            <!-- Color picker for color blend -->
-            <input id='blendcolor' type="color" id="blendColor" value="#6d4545"></input>
-            <label for="blendColor">Color for blend:</label>
         </div>
     </div>
 </body>

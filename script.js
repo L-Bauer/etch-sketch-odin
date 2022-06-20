@@ -3,10 +3,12 @@ const inputs = document.querySelectorAll('.controls input');
 const sizeLabel = document.querySelector('.size');
 const cellGrid = document.querySelectorAll('.cell');
 const eraseButton = document.querySelector('.erase');
+const normalColor = document.querySelector('#color');
 
 let gridSize = 16;
 let isToggling = false;
-let cellColor = '#6d4545';
+let cellColor = normalColor.value;
+let radioButtonValue;
 
 window.onload = () => {
     setupGrid(gridSize);
@@ -26,16 +28,19 @@ function setupGrid(size) {
     }
 }
 
-//Changing the grid size
+//Looking at input blocks
 function handleUpdate() {
     if (this.id == 'sizing') {
         gridSize = this.value;
-        newGrid();
-         
+        newGrid();     
     }
-    if (this.id == 'color') {
+    else if (this.id == 'color') {
         console.log(this.value);
         cellColor = this.value;
+    }
+    else if (this.type == 'radio') {
+        console.log(this.value);
+        radioButtonValue = this.value;
     }
 }
 
@@ -66,9 +71,8 @@ function toggle(e) {
     if (e.type == 'mousedown') {
         isToggling = true;
         console.log('enableToggle');
-        console.log(e);
         if (e.target.parentElement.className == 'grid') {
-            addColor(e);
+            cellChange(e);
         }
     }
     else if (e.type == 'mouseup') {
@@ -77,24 +81,31 @@ function toggle(e) {
     }
 }
 
-function addColor(e) {
+function cellChange(e) {
     if (isToggling === false) {
         return;
     }
-    e.target.style.background = cellColor;
-    console.log('toggle:', e.target);
+    else if (radioButtonValue == 'lighten') {
+        lightShade(e);
+        console.log('Lighten Color');
+    }
+    else if (radioButtonValue == 'darken') {
+        darkShade(e);
+        console.log('Darken Color');
+    }
+    else {
+        color(e);
+        console.log('Normal Color');
+    }
 }
-
+colorCells();
 function colorCells() {
-    grid.addEventListener('mousedown', addColor);
-    grid.addEventListener('mousemove', addColor);
+    grid.addEventListener('mousedown', cellChange);
+    grid.addEventListener('mousemove', cellChange);
 
     document.addEventListener('mousedown', toggle);
     document.addEventListener('mouseup', toggle);
 }
-
-colorCells();
-//End of coloring cells
 
 
 const RGB_Linear_Shade=(p,c)=>{
@@ -102,17 +113,20 @@ const RGB_Linear_Shade=(p,c)=>{
     return"rgb"+(d?"a(":"(")+r(i(a[3]=="a"?a.slice(5):a.slice(4))*P+t)+","+r(i(b)*P+t)+","+r(i(c)*P+t)+(d?","+d:")");
 }
 
-const RGB_Linear_Blend=(p,c0,c1)=>{
-    var i=parseInt,r=Math.round,P=1-p,[a,b,c,d]=c0.split(","),[e,f,g,h]=c1.split(","),x=d||h,j=x?","+(!d?h:!h?d:r((parseFloat(d)*P+parseFloat(h)*p)*1000)/1000+")"):")";
-    return"rgb"+(x?"a(":"(")+r(i(a[3]=="a"?a.slice(5):a.slice(4))*P+i(e[3]=="a"?e.slice(5):e.slice(4))*p)+","+r(i(b)*P+i(f)*p)+","+r(i(c)*P+i(g)*p)+j;
-}
-
-grid.addEventListener('mouseover', shade);
-
 //Darkens shade
-function shade(e) {
-    let newColor = RGB_Linear_Shade(-0.5, e.target.style.background)
+function darkShade(e) {
+    let newColor = RGB_Linear_Shade(-0.1, e.target.style.background)
     console.log(newColor);
     e.target.style.background = newColor;
+}
+//Lightens shade
+function lightShade(e) {
+    let newColor = RGB_Linear_Shade(0.1, e.target.style.background)
+    console.log(newColor);
+    e.target.style.background = newColor;
+}
+
+function color(e) {
+    e.target.style.background = cellColor;
 }
 
