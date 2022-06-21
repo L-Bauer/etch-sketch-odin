@@ -7,8 +7,13 @@ html body {
 
 .sketchPad {
     display: flex;
-    justify-content: center;
-    align-content: center;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+
+.sketchPad .grid {
+    align-self: center;
 }
 
 .grid {
