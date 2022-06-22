@@ -30,11 +30,24 @@ html body {
     flex-direction: column;
 }
 
+.controls > * {
+    padding: 5px;
+}
+
+.radioButtons {
+    display: flex;
+    flex-direction: column;
+}
+
+.radioButtons > * {
+    padding: 5px;
+}
+
 header {
     align-self: center;
 }
 
 footer {
-    align-self: flex-end;
+    align-self: center;
 }
 

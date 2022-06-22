@@ -17,22 +17,33 @@
         <div class="grid">
         </div>
         <div class="controls">
-            <label for="sizing">Grid Size:</label>
-            <input id="sizing" type="range" name="sizing" min="16" max="64" value="2"></input>
-            <p class="size"></p>
-            <label for="colorpicker">Color Picker:</label>
-            <input id='color' type="color" id="colorpicker" value="#000000"></input>
+            <div class="sizer">
+                <label for="sizing">Grid Size:</label>
+                <input id="sizing" type="range" name="sizing" min="16" max="64" value="2"></input>
+                <p class="size"></p>
+            </div>
+            <div class="picker">
+                <label for="colorpicker">Color Picker:</label>
+                <input id='color' type="color" id="colorpicker" value="#000000"></input>    
+            </div>
             <button class="erase">Erase Work</button>
             <div class="radioButtons">
-                <!-- Normal color radio button -->
-                <input type="radio" id="normalColor" name="coloring" value="normal" checked="checked">
-                <label for="normalColor">Normal Color</label><br>
-                <!-- Dark Shade radio button -->
-                <input type="radio" id="darkShade" name="coloring" value="darken">
-                <label for="darkShade">Shade Darken</label><br>
-                <!-- Light Shade radio button -->
-                <input type="radio" id="lightShade" name="coloring" value="lighten">
-                <label for="lightShade">Shade Lighten</label><br>
+                <div class="colorRadio">
+                    <!-- Normal color radio button --> 
+                    <input type="radio" id="normalColor" name="coloring" value="normal" checked="checked">
+                    <label for="normalColor">Normal Color</label><br>   
+                </div>
+                <div class="darkRadio">
+                    <!-- Dark Shade radio button -->
+                    <input type="radio" id="darkShade" name="coloring" value="darken">
+                    <label for="darkShade">Shade Darken</label><br>
+                </div>
+                <div class="lightRadio">
+                    <!-- Light Shade radio button -->
+                    <input type="radio" id="lightShade" name="coloring" value="lighten">
+                    <label for="lightShade">Shade Lighten</label><br>
+                </div>
+                
             </div>
         </div>
     </div>
