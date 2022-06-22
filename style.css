@@ -5,14 +5,9 @@ html body {
 
 .sketchPad {
     display: flex;
-    align-items: flex-start;
     justify-content: center;
 }
 
-
-.sketchPad .grid {
-    align-self: center;
-}
 
 .grid {
     display: grid;
@@ -33,6 +28,9 @@ html body {
     align-self: center;
     display: flex;
     flex-direction: column;
+    position: absolute;
+    right: 0;
+    margin-right: 20px;
 }
 
 header {
