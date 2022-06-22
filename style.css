@@ -35,6 +35,20 @@ html body {
     font-size: 20px;
 }
 
+.sizer {
+    display: flex;
+    align-items: center;
+}
+
+.sizer > * {
+    margin: 2px 8px;
+}
+
+.sizer input {
+    height: 20px;
+    width: auto;
+}
+
 .picker {
     display: flex;
     align-items: center;
@@ -51,6 +65,8 @@ html body {
 .erase {
     margin: 5px;
     padding: 10px 5px;
+    border-radius: 20px;
+    width: 10vmax
 }
 
 .radioButtons {
