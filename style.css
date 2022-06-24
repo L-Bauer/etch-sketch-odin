@@ -10,7 +10,6 @@ html body {
     justify-content: center;
 }
 
-
 .grid {
     display: grid;
     width: 640px;
@@ -61,7 +60,6 @@ html body {
     border-radius: 10px;
 }
 
-
 .erase {
     margin: 5px;
     padding: 10px 5px;
@@ -105,7 +103,6 @@ footer a {
     align-self: center;
     margin-left: 10px;
 }
-
 
 .fa-github {
 color: black;

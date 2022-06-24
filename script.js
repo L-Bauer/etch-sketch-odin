@@ -65,7 +65,6 @@ function moveMouse () {
 //Erase work, Start with clean grid
 eraseButton.addEventListener('click', newGrid);
 
-
 //Color the cells
 function toggle(e) {
     if (e.type == 'mousedown') {
@@ -106,7 +105,6 @@ function colorCells() {
     document.addEventListener('mousedown', toggle);
     document.addEventListener('mouseup', toggle);
 }
-
 
 const RGB_Linear_Shade=(p,c)=>{
     var i=parseInt,r=Math.round,[a,b,c,d]=c.split(","),P=p<0,t=P?0:255*p,P=P?1+p:1-p;
